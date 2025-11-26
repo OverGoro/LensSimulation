@@ -1,0 +1,39 @@
+\babel@toc {russian}{}\relax 
+\contentsline {chapter}{ВВЕДЕНИЕ}{3}{chapter*.3}%
+\contentsline {chapter}{\numberline {1}Аналитическая часть}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Физическая модель оптических линз}{4}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Формализация задачи}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Формализация объектов сцены}{7}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Модель освещения}{7}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Метод фотонных карт}{8}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Простроение освещения с помощью трассировки лучей}{9}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Алгоритмы удаления невидимых поверхностей}{9}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Алгоритм Робертса}{10}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Алгоритм Z--буфера}{10}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}Алгоритм Варнока}{11}{subsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.5.4}Алгоритм обратной трассировки лучей}{12}{subsection.1.5.4}%
+\contentsline {section}{\numberline {1.6}Способы хранения трехмерных объектов}{13}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Геометрические параметры 3д объектов}{13}{subsection.1.6.1}%
+\contentsline {section}{\numberline {1.7}Вывод}{14}{section.1.7}%
+\contentsline {chapter}{\numberline {2}Конструкторский раздел}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Функциональная модель программного обеспечения}{15}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Используемые типы и структуры данных}{17}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Формальное описание алгоритмов}{19}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Поиск персечения луча и сферы}{19}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Поиск пересечения луча и полигона}{20}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Персечение с оптической линзой}{22}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Обратная трассировка}{24}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Алгоритм построения фотонной карты}{26}{subsection.2.3.5}%
+\contentsline {chapter}{\numberline {3}Технологическая часть}{28}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Средства реализация}{28}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Используемые классы}{28}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Пользовательский интерфейс}{29}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Вывод}{33}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Исследовательская часть}{34}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Цель эксперимента}{34}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Технические характеристики}{34}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Описание эксперимента}{34}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Зависимость времени построения карты от числа фотонов на источник}{35}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Зависимость времени отрисовки от радиуса сбора освещенности}{37}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Вывод}{38}{section.4.6}%
+\contentsline {chapter}{ЗАКЛЮЧЕНИЕ}{40}{chapter*.32}%

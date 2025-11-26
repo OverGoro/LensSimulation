@@ -1,0 +1,321 @@
+\chapter{Исследовательская часть}
+
+    В данном разделе описан эксперимент по определению влияния числа фотонов, испускаемых источником света, и радиуса сбора освещенности на качество изображения и время его создания.
+    
+    \section{Цель эксперимента}
+    
+        Целью эксперимента является определение оптимального числа фотонов для отрисовки заданной сцены.
+    
+    \section{Технические характеристики}
+
+        Технические характеристики устройства, на котором выполнялось исследование:
+
+        \begin{itemize}
+        	\item[--] процессор: Intel Core™ i5-13420H \cite{i5} 2.1ГГц;
+        	\item[--] память: 16 Гб;
+        	\item[--] операционная система: Ubuntu 24.04.1 LTS \cite{ubuntu} Linux \cite{linux}.
+        \end{itemize}
+        
+        Эксперимент проводился на ноутбуке, включенном в сеть электропитания, система работала в производительном режиме без ограничений на нагрузку процессора. Во время тестирования ноутбук был нагружен только встроенными приложениями окружения рабочего стола, окружением рабочего стола и непосредственно системой тестирования.
+        
+    \section{Описание эксперимента}
+
+        Создана сцена состоящая из 2 прозрачных, 1 непрозрачного объекта и источника света. По сцене строилось изображение размером 900x900 пикселей для разного числа фотонов, испускаемых источником: от 100000 до 1100000 с шагом в 250000 фотонов, радиус сбора освещенности: от 0.05 до 0.1 с шагом 0.25. Рассматриваемя сцена представлена на рисунке \ref{img/full_experiment}.
+
+        \begin{figure}[H]
+		\center{\includegraphics[width=\textwidth, height=210mm, width=170mm, keepaspectratio]{img/measures/full.png}}
+		\caption{Сцена эксперимента}
+		\label{img/full_experiment}
+\end{figure}
+ 
+        
+\section{Зависимость времени построения карты от числа фотонов на источник}
+
+В таблице \ref{tbl:render_time} представлена зависимость времени построения карты от числа фотонов на источник. Исследование проводилось при различных значениях числа фотонов.
+
+\begin{table}[h]
+    \centering
+    \small
+    \caption{Время построения карты в зависимости от числа фотонов}
+    \label{tbl:render_time}
+    \begin{tabular}{
+          |>{\raggedleft\arraybackslash}m{1.7in}|
+          >{\raggedleft\arraybackslash}m{1.7in}|}
+        \hline
+        Число фотонов на источник & Время построения (c) \\
+        \hline
+        100000   & 1.794 \\
+        \hline
+        350000   & 6.722 \\
+        \hline
+        600000   & 11.948 \\
+        \hline
+        850000   & 17.718 \\
+        \hline
+        1100000  & 23.214 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+По таблице \ref{tbl:render_time} построен график, изображенный на рисунке \ref{img:render_graph}.
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                title={Время построения карты},
+                xlabel={Число фотонов на источник},
+                ylabel={Время построения (c)},
+                width=12cm,
+                grid=major,
+                smooth,
+                legend pos=outer north east,
+            ]
+            \addplot coordinates {(100000, 1.794) (350000, 6.722) (600000, 11.948) (850000, 17.718) (1100000, 23.214)};
+            \addlegendentry{Время построения}
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    \captionsetup{justification=centering}
+    \caption{График зависимости времени построения карты от числа фотонов на источник}
+    \label{img:render_graph}
+\end{figure}
+
+По результатам видно, что время построения карты линейно зависит от числа фотонов, испускаемых источником.
+
+\clearpage
+
+\section{Зависимость времени отрисовки от радиуса сбора освещенности}
+
+В таблице \ref{tbl:collection_radius} представлена зависимость времени отрисовки от радиуса сбора освещенности. Исследование проводилось при различных радиусах и числах фотонов.
+
+\begin{table}[h]
+    \centering
+    \small
+    \caption{Зависимость времени отрисовки от радиуса сбора освещенности}
+    \label{tbl:collection_radius}
+    \begin{tabular}{
+          |>{\raggedleft\arraybackslash}m{1.3in}|
+          >{\raggedleft\arraybackslash}m{1.3in}|
+          >{\raggedleft\arraybackslash}m{1.3in}|
+          >{\raggedleft\arraybackslash}m{1.3in}|}
+        \hline
+        Радиус сбора & Число фотонов & Время (c) & Изображение \\
+        \hline
+        \multirow{5}{*}{0.025} & 100000 & 9.264 & Рисунок \ref{img/0025100} \\
+        & 350000 & 16.019 & Рисунок \ref{img/0025350} \\
+        & 600000 & 20.838 & Рисунок \ref{img/0025600} \\
+        & 850000 & 25.42 & Рисунок \ref{img/0025850} \\
+        & 1100000 & 29.201 & Рисунок \ref{img/00251100} \\
+        \hline
+        \multirow{5}{*}{0.050} & 100000 & 12.602 & Рисунок \ref{img/005100} \\
+        & 350000 & 25.423 & Рисунок \ref{img/005350} \\
+        & 600000 & 36.297 & Рисунок \ref{img/005600} \\
+        & 850000 & 44.543 & Рисунок \ref{img/005850} \\
+        & 1100000 & 55.177 & Рисунок \ref{img/0051100} \\
+        \hline
+        \multirow{5}{*}{0.075} & 100000 & 16.722 & Рисунок \ref{img/0075100} \\
+        & 350000 & 37.342 & Рисунок \ref{img/0075350} \\
+        & 600000 & 56.473 & Рисунок \ref{img/0075600} \\
+        & 850000 & 73.379 & Рисунок \ref{img/0075850} \\
+        & 1100000 & 89.379 & Рисунок \ref{img/00751100} \\
+        \hline
+        \multirow{5}{*}{0.100} & 100000 & 22.153 & Рисунок \ref{img/01100} \\
+        & 350000 & 53.549 & Рисунок \ref{img/01350} \\
+        & 600000 & 83.571 & Рисунок \ref{img/01600} \\
+        & 850000 & 110.001 & Рисунок \ref{img/01850} \\
+        & 1100000 & 135.275 & Рисунок \ref{img/011100} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+По таблице \ref{tbl:collection_radius} был построен график, изображенный на рисунке \ref{img:collection_graph}. По результатам можно сделать вывод, что время создания изображения имеет линейную зависимость от числа фотонов, испускаемых источником. 
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                title={Время отрисовки в зависимости от числа фотонов на источник},
+                xlabel={Число фотонов на источник},
+                ylabel={Время отрисовки (c)},
+                width=12cm,
+                grid=major,
+                legend pos=outer north east,
+            ]
+            % Радиус 0.1
+            \addplot coordinates {(100000, 22.153) (350000, 53.549) (600000, 83.571) (850000, 110.001) (1100000, 135.275)};
+            \addlegendentry{Радиус 0.1}
+
+            % Радиус 0.075
+            \addplot coordinates {(100000, 16.722) (350000, 37.342) (600000, 56.473) (850000, 73.379) (1100000, 89.379)};
+            \addlegendentry{Радиус 0.075}
+
+            % Радиус 0.05
+            \addplot coordinates {(100000, 12.602) (350000, 25.423) (600000, 36.297) (850000, 44.543) (1100000, 55.177)};
+            \addlegendentry{Радиус 0.05}
+
+            % Радиус 0.0025
+            \addplot coordinates {(100000, 9.264) (350000, 16.019) (600000, 20.838) (850000, 25.42) (1100000, 29.201)};
+            \addlegendentry{Радиус 0.025}
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    \captionsetup{justification=centering}
+    \caption{График зависимости времени отрисовки от числа фотонов}
+    \label{img:collection_graph}
+\end{figure}
+
+
+На рисунке \ref{fig/measurements} представлены части изображений с наиболее характерными деффектами для разного радиуса сбора освещенности и числа фотонов.
+
+\begin{figure}[htbp]
+    \centering
+
+    % Радиус 0.025
+    \textbf{Рисунки для радиуса 0.025} \\
+    \begin{minipage}{0.9\textwidth}
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/0025100.png}
+            \caption{Число фотонов: 100000.}
+            \label{img/0025100}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/0025350.png}
+            \caption{Число фотонов: 350000.}
+            \label{img/0025350}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/0025600.png}
+            \caption{Число фотонов: 600000.}
+            \label{img/0025600}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/0025850.png}
+            \caption{Число фотонов: 850000.}
+            \label{img/0025850}
+        \end{subfigure}
+                \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/00251100.png}
+            \caption{Число фотонов: 1100000.}
+            \label{img/00251100}
+        \end{subfigure}
+    \end{minipage}
+    \vspace{0.5cm}
+
+    % Радиус 0.050
+    \textbf{Рисунки для радиуса 0.050} \\
+    \begin{minipage}{0.9\textwidth}
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/005100.png}
+            \caption{Число фотонов: 100000.}
+            \label{img/005100}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/005350.png}
+            \caption{Число фотонов: 350000.}
+            \label{img/005350}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/005600.png}
+            \caption{Число фотонов: 600000.}
+            \label{img/005600}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/005850.png}
+            \caption{Число фотонов: 850000.}
+            \label{img/005850}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/0051100.png}
+            \caption{Число фотонов: 1100000.}
+            \label{img/0051100}
+        \end{subfigure}
+    \end{minipage}
+    \vspace{0.5cm}
+
+    % Радиус 0.075
+    \textbf{Рисунки для радиуса 0.075} \\
+    \begin{minipage}{0.9\textwidth}
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/0075100.png}
+            \caption{Число фотонов: 100000.}
+            \label{img/0075100}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/0075350.png}
+            \caption{Число фотонов: 350000.}
+            \label{img/0075350}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/0075600.png}
+            \caption{Число фотонов: 600000.}
+            \label{img/0075600}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/0075850.png}
+            \caption{Число фотонов: 850000.}
+            \label{img/0075850}
+        \end{subfigure}
+                \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/00751100.png}
+            \caption{Число фотонов: 1100000.}
+            \label{img/00751100}
+        \end{subfigure}
+    \end{minipage}
+    \vspace{0.5cm}
+
+    % Радиус 0.100
+    \textbf{Рисунки для радиуса 0.100} \\
+    \begin{minipage}{0.9\textwidth}
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/01100.png}
+            \caption{Число фотонов: 100000.}
+            \label{img/01100}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/01350.png}
+            \caption{Число фотонов: 350000.}
+            \label{img/01350}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/01600.png}
+            \caption{Число фотонов: 600000.}
+            \label{img/01600}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/01850.png}
+            \caption{Число фотонов: 850000.}
+            \label{img/01850}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.18\textwidth}
+            \includegraphics[width=\textwidth]{img/measures/011100.png}
+            \caption{Число фотонов: 1100000.}
+            \label{img/011100}
+        \end{subfigure}
+    \end{minipage}
+
+    \caption{Результаты для различных радиусов сбора и количества фотонов.}
+    \label{fig/measurements}
+\end{figure}
+
+По результам эксперимента можно сделать вывод, что наиболее детализированными являются изображения с минимальным радиусом сбора. Однако такая настройка требует большего количества фотонов, что можно заметить по черным точкам на частях изображения с прямым освещением. Несмотря на то, что для правильной отрисовки требуется большое количество фотонов, при меньшем радиусе сбора время отрисовки будет все равно меньше, это связано с временем поиска в деревьях фотонных карт, потому что при большем радиусе большее число фотонов попадает в область поиска.
+	К тому же при большем радиусе сбора освещенности возникают дефекты на краях теней, как, например, <<перемычка>>  между тенями двух сфер, на изображениях, полученных с радиусом 0.05 - 0.1. На изображениях, полученных с радиусом 0.025, такого эффекта не наблюдается. Также явление дисперсии более заметно при меньшем радиусе сбора. 
+
+    \section{Вывод}
+    В исследовательской части были описаны характеристики устройства, на котором проводились замеры, а также проведенный эксперимент. Результаты показывают, что для увеличения детализированности освещения необходимо увеличивать число фотонов, при этом уменьшая радиус сбора освещенности. При этом скорость работы возрастает при уменьшении радиуса сбора.
